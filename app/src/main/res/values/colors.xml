@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Monochrome palette (app and widgets). Names kept from the old dynamic palette. -->
+    <color name="dynamic_primary">#111111</color>
+    <color name="dynamic_on_primary">#FFFFFF</color>
+    <color name="dynamic_surface">#EFEFEF</color>
+    <color name="dynamic_primary_container">#DEDEDE</color>
+    <color name="dynamic_on_surface_variant">#7A7A7A</color>
+    <color name="widget_ripple">#1F000000</color>
+</resources>

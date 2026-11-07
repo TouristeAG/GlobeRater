@@ -1,0 +1,25 @@
+# Build
+.gradle/
+build/
+app/build/
+*.apk
+*.aab
+
+# Local machine
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# Signing secrets — never commit
+keystore.properties
+*.jks
+*.keystore
+
+# Design source material kept locally (stock images / third-party packs, not for the repo)
+/FIST/
+/PLANES/
+/weather-icons-master/
+/*.zip
+/*.avif
+/GLOBE.svg

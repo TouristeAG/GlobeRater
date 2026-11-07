@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose draws everything; this only sets the launch window (no action bar, right background). -->
+    <style name="Theme.CurrencyWidget" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/dynamic_surface</item>
+    </style>
+</resources>

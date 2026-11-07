@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home time vs local time on "sky" tiles. TextClock ticks on its own: no updates needed. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/clock_home_tile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/output_display_background"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/clock_home_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-black"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="12sp" />
+
+            <TextClock
+                android:id="@+id/clock_home_time"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:format12Hour="h:mm"
+                android:format24Hour="H:mm"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16sp"
+                android:autoSizeMaxTextSize="64sp"
+                android:autoSizeStepGranularity="2sp"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/dynamic_primary" />
+
+            <TextClock
+                android:id="@+id/clock_home_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="EEE d MMM"
+                android:format24Hour="EEE d MMM"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="11sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/clock_here_tile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/output_display_background"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/clock_here_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-black"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="12sp" />
+
+            <TextClock
+                android:id="@+id/clock_here_time"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:format12Hour="h:mm"
+                android:format24Hour="H:mm"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16sp"
+                android:autoSizeMaxTextSize="64sp"
+                android:autoSizeStepGranularity="2sp"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/dynamic_primary" />
+
+            <TextClock
+                android:id="@+id/clock_here_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="EEE d MMM"
+                android:format24Hour="EEE d MMM"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

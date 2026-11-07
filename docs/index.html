@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlobeRater</title>
+<meta name="description" content="Home-screen widgets for travellers: currency converter, holiday budget, and home vs local time and weather.">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #f2dfd3; --panel: #ead2c4; --ink: #5c4a40; --ink-soft: #7d685d; --key: #5c4a40; --on-key: #f8ece4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #2b211c; --panel: #362a24; --ink: #ecd3c3; --ink-soft: #c2aa9c; --key: #ecd3c3; --on-key: #2b211c; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 500 17px/1.55 Roboto, "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  main { max-width: 960px; margin: 0 auto; padding: 48px 20px 64px; }
+  header { display: flex; align-items: center; gap: 14px; }
+  header img { width: 56px; height: 56px; border-radius: 14px; }
+  header b { font-size: 22px; font-weight: 900; }
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; margin-top: 48px; }
+  h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.05; font-weight: 900; margin: 0 0 18px; letter-spacing: -0.5px; }
+  .lead { color: var(--ink-soft); font-size: 19px; margin: 0 0 28px; }
+  .btn {
+    display: inline-block; background: var(--key); color: var(--on-key); text-decoration: none;
+    font-weight: 900; padding: 14px 22px; border-radius: 12px;
+  }
+  .meta { margin-top: 14px; color: var(--ink-soft); font-size: 14px; }
+  .shot { justify-self: center; width: min(320px, 100%); border: 2.5px solid var(--ink); border-radius: 28px; overflow: hidden; }
+  .shot img { display: block; width: 100%; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
+  .card { border: 2.5px solid var(--ink); border-radius: 12px; padding: 20px; }
+  .card h2 { font-size: 18px; font-weight: 900; margin: 0 0 8px; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+  .key { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--key); color: var(--on-key); font-weight: 900; margin-bottom: 12px; }
+  footer { margin-top: 56px; color: var(--ink-soft); font-size: 14px; }
+  footer a { color: inherit; }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; margin-top: 32px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header><img src="icon.png" alt=""><b>GlobeRater</b></header>
+
+  <section class="hero">
+    <div>
+      <h1>Your travel money, on the home screen.</h1>
+      <p class="lead">Convert prices with a keypad widget, see how much of your budget is left, and check the time and weather back home. No account, no ads, works offline.</p>
+      <a class="btn" href="https://github.com/TouristeAG/GlobeRater/releases/latest">Download for Android</a>
+      <p class="meta">Android 8.0 or newer · 15 languages · Free and open source (MIT)</p>
+    </div>
+    <div class="shot"><img src="screenshots/today.png" alt="GlobeRater Today screen"></div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <span class="key">€</span>
+      <h2>Converter widgets</h2>
+      <p>Type an amount, see it in up to five currencies. Rates are saved on the phone and refresh in the background.</p>
+    </div>
+    <div class="card">
+      <span class="key">+</span>
+      <h2>Budget widgets</h2>
+      <p>Add what you just typed with one tap. The bar fills up as you spend and starts over each day, week or month.</p>
+    </div>
+    <div class="card">
+      <span class="key">◷</span>
+      <h2>Home &amp; here</h2>
+      <p>The time and weather at home next to where you are, a fixed city or wherever your phone is.</p>
+    </div>
+  </section>
+
+  <footer>
+    Rates by <a href="https://openexchangerates.org">Open Exchange Rates</a> · Weather by <a href="https://open-meteo.com">Open-Meteo</a> (CC BY 4.0) ·
+    <a href="https://github.com/TouristeAG/GlobeRater">Source on GitHub</a>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Only asked when the user picks "my current location" for the second weather place. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".CurrencyWidgetApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CurrencyWidget"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.CurrencyWidget">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Converter -->
+        <receiver
+            android:name=".widget.CurrencyConverterWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_converter">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/currency_converter_widget_info" />
+        </receiver>
+        <!-- Compact converter -->
+        <receiver
+            android:name=".widget.CurrencyConverterCompactWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_compact_converter">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/currency_converter_widget_compact_info" />
+        </receiver>
+        <!-- Converter + budget -->
+        <receiver
+            android:name=".widget.CurrencyConverterExpandedBudgetWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_converter_budget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/currency_converter_expanded_budget_widget_info" />
+        </receiver>
+        <!-- Compact converter + budget -->
+        <receiver
+            android:name=".widget.CurrencyConverterCompactBudgetWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_compact_converter_budget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/currency_converter_widget_compact_budget_info" />
+        </receiver>
+        <!-- Budget (vertical) -->
+        <receiver
+            android:name=".widget.BudgetTrackerWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_budget_vertical">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/budget_tracker_widget_info" />
+        </receiver>
+        <!-- Budget (mini) -->
+        <receiver
+            android:name=".widget.MinimalBudgetTrackerWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_budget_mini">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/minimal_budget_tracker_widget_info" />
+        </receiver>
+        <!-- Budget (horizontal) -->
+        <receiver
+            android:name=".widget.HorizontalBudgetTrackerWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_budget_horizontal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.currencywidget.BUDGET_UPDATED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/horizontal_budget_tracker_widget_info" />
+        </receiver>
+        <!-- Weather -->
+        <receiver
+            android:name=".widget.WeatherTwoDayWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_weather">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_two_day_widget_info" />
+        </receiver>
+        <!-- Travel clock -->
+        <receiver
+            android:name=".widget.TravelClockWidgetProvider"
+            android:exported="false"
+            android:label="@string/label_travel_clock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/travel_clock_widget_info" />
+        </receiver>
+
+        <!-- WorkManager is initialised on demand with the Hilt worker factory
+             (see CurrencyWidgetApplication), so remove its default initializer. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+    </application>
+
+</manifest>

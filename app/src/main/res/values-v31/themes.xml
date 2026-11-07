@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launch window matches the Material You surface used by the app on Android 12+. -->
+    <style name="Theme.CurrencyWidget" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/system_neutral1_10</item>
+    </style>
+</resources>

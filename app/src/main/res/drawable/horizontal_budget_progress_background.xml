@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Rectangle Background (Total Budget) with rounded corners -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <!-- Non-filled area uses the same background as other widgets -->
+            <solid android:color="@color/dynamic_primary_container" />
+        </shape>
+    </item>
+
+    <!-- Progress (Used Budget) - fill from left to right -->
+    <item android:id="@android:id/progress">
+        <clip android:clipOrientation="horizontal" android:gravity="left">
+            <shape android:shape="rectangle">
+                <corners android:radius="16dp" />
+                <!-- Filled part uses D-pad button color -->
+                <solid android:color="@color/dynamic_primary" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- Top Section: Input Display and Currency Selection -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Input Amount Display (Top Left) -->
+            <TextView
+            android:id="@+id/input_amount_display"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CHF 1123"
+                android:textColor="@color/dynamic_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start|center_vertical" />
+
+        <!-- Currency Selection (Top Right) - Rounded Squares -->
+        <LinearLayout
+            android:id="@+id/currency_segmented_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <Button
+                android:id="@+id/currency_btn_1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="4dp"
+                android:text="CHF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/currency_button_selected"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/currency_btn_2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="3dp"
+                android:text="EUR"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/currency_button_unselected"
+                android:textColor="@color/dynamic_primary" />
+
+            <Button
+                android:id="@+id/currency_btn_3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="4dp"
+                android:text="USD"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/currency_button_unselected"
+                android:textColor="@color/dynamic_primary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Number Pad Grid -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <!-- Row 1: 1, 2, 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="3dp"
+                android:text="2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+        </LinearLayout>
+
+        <!-- Row 2: 4, 5, 6 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="4"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="3dp"
+                android:text="5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="6"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+        </LinearLayout>
+
+        <!-- Row 3: 7, 8, 9 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="7"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="3dp"
+                android:text="8"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="9"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+        </LinearLayout>
+
+        <!-- Row 4: 0, ,, 000 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_comma"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="3dp"
+                android:text=","
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <Button
+                android:id="@+id/btn_000"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Section: Output Currencies and Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <!-- Output Currencies (Left Side) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/output_display_background"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:id="@+id/output_container">
+
+            <TextView
+                android:id="@+id/currency_display_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1200,88 EUR"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="0dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/currency_display_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1411,44 USD"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="0dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/currency_display_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="42920,59 NTD"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/currency_display_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0,00 XXX"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="0dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/currency_display_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0,00 YYY"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="0dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:includeFontPadding="false" />
+
+        </LinearLayout>
+
+        <!-- Action Buttons (Right Side) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:gravity="center">
+
+            <!-- Clear Button -->
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginBottom="8dp"
+                android:text="C"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+            <!-- Delete/Backspace Button -->
+            <Button
+                android:id="@+id/btn_backspace"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:text="⌫"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:background="@drawable/number_button_background"
+                android:textColor="@color/dynamic_on_primary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

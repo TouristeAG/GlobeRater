@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Monochrome palette, dark. -->
+    <color name="dynamic_primary">#F2F2F2</color>
+    <color name="dynamic_on_primary">#111111</color>
+    <color name="dynamic_surface">#161616</color>
+    <color name="dynamic_primary_container">#2A2A2A</color>
+    <color name="dynamic_on_surface_variant">#8C8C8C</color>
+    <color name="widget_ripple">#33FFFFFF</color>
+</resources>

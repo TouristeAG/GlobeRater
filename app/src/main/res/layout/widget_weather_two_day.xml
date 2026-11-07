@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather: home vs here. Each row = one place (now + today + tomorrow). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/weather_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/weather_empty"
+        android:textColor="@color/dynamic_on_surface_variant"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/weather_row_1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/output_display_background"
+        android:paddingHorizontal="14dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/w1_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/w1_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/w1_now_icon"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:contentDescription="@null"
+            android:src="@drawable/wx_sun" />
+
+        <TextView
+            android:id="@+id/w1_now_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="sans-serif-black"
+            android:minWidth="48dp"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/w1_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/w1_tomorrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/weather_divider"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+    <LinearLayout
+        android:id="@+id/weather_row_2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/output_display_background"
+        android:paddingHorizontal="14dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/w2_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/w2_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/w2_now_icon"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:contentDescription="@null"
+            android:src="@drawable/wx_sun" />
+
+        <TextView
+            android:id="@+id/w2_now_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="sans-serif-black"
+            android:minWidth="48dp"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/w2_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/w2_tomorrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                android:textColor="@color/dynamic_primary"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

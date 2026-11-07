@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Horizontal Progress Background -->
+    <ProgressBar
+        android:id="@+id/budget_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/horizontal_budget_progress_background" />
+
+    <!-- Overlay content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+
+        <!-- Right side plus buttons: we show one size depending on widget bounds -->
+        <Button
+            android:id="@+id/btn_add_to_budget_large"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_add_to_budget_xlarge"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="44sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_add_to_budget_medium"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_add_to_budget_small"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <!-- Dynamic used marker container (padding from left is adjusted in code) -->
+        <LinearLayout
+            android:id="@+id/used_marker_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            
+            <!-- Value text (top line) -->
+            <TextView
+                android:id="@+id/budget_used_value_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="88,67"
+                android:textColor="@color/dynamic_primary_container"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:visibility="visible" />
+            
+            <!-- Currency text (bottom line) -->
+            <TextView
+                android:id="@+id/budget_used_currency_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-2sp"
+                android:gravity="center_horizontal"
+                android:text="EUR"
+                android:textColor="@color/dynamic_primary_container"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:visibility="visible" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

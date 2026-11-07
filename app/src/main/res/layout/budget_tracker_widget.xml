@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Rounded Rectangle Progress Background -->
+    <ProgressBar
+        android:id="@+id/budget_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/rounded_rectangle_budget_progress_background" />
+
+    <!-- Overlay content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        
+
+        <!-- Total amount at top center; shown only when used < 10% -->
+        <TextView
+            android:id="@+id/budget_total_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="1200,88 EUR"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal"
+            android:textAlignment="center" />
+
+        <!-- Bottom overlapping plus buttons: we show one size depending on widget bounds -->
+        <Button
+            android:id="@+id/btn_add_to_budget_large"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_add_to_budget_xlarge"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_add_to_budget_medium"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_add_to_budget_small"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/fab_plus_background"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/dynamic_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:visibility="gone" />
+
+        <!-- Dynamic used marker container (padding from bottom is adjusted in code) -->
+        <FrameLayout
+            android:id="@+id/used_marker_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/budget_used_marker_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="88,67 EUR"
+                android:textColor="@color/dynamic_primary_container"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
