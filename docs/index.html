@@ -34,7 +34,9 @@
   .shot { border: 2.5px solid var(--ink); border-radius: 28px; overflow: hidden; background: var(--bg); position: relative; z-index: 1; }
   .shot.back { position: absolute; top: 0; right: 0; width: 78%; z-index: 0; transform: rotate(4deg); }
   .shot img { display: block; width: 100%; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
+  .widgets { margin: 72px 0 0; }
+  .widgets img { display: block; width: 100%; max-width: 720px; margin: 0 auto; border-radius: 18px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
   .card { border: 2.5px solid var(--ink); border-radius: 12px; padding: 20px; }
   .card h2 { font-size: 18px; font-weight: 900; margin: 0 0 8px; }
   .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
@@ -63,6 +65,8 @@
       <div class="shot back"><img src="screenshots/today-dark.png" alt="Today screen, dark mode"></div>
     </div>
   </section>
+
+  <figure class="widgets"><img src="screenshots/widgets.png" alt="Converter, budget, clock and weather widgets"></figure>
 
   <section class="grid">
     <div class="card">

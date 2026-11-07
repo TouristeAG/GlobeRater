@@ -22,6 +22,10 @@
 
 ## What it does
 
+<p align="center">
+  <img src="docs/screenshots/widgets.png" width="640" alt="Converter, budget, clock and weather widgets">
+</p>
+
 **Currency widgets.** A keypad right on the home screen: type an amount and see it in up to five currencies at once. Rates come from [Open Exchange Rates](https://openexchangerates.org/signup/free) (a free key is enough) and are stored on the phone, so the widgets keep working offline.
 
 **Budget widgets.** Set a budget per day, week, month or year. Every converter with a budget has a **+** key that adds what you just typed. The bar, or the whole background on the compact widget, fills up as you spend, and starts over at the beginning of each period.
