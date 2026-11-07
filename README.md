@@ -15,7 +15,9 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/today.png" width="300" alt="The Today screen">
+  <img src="docs/screenshots/today.png" width="280" alt="Today screen, light mode">
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/today-dark.png" width="280" alt="Today screen, dark mode">
 </p>
 
 ## What it does

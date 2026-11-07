@@ -30,7 +30,9 @@
     font-weight: 900; padding: 14px 22px; border-radius: 12px;
   }
   .meta { margin-top: 14px; color: var(--ink-soft); font-size: 14px; }
-  .shot { justify-self: center; width: min(320px, 100%); border: 2.5px solid var(--ink); border-radius: 28px; overflow: hidden; }
+  .shots { justify-self: center; position: relative; width: min(360px, 100%); padding-right: 22%; padding-top: 10%; }
+  .shot { border: 2.5px solid var(--ink); border-radius: 28px; overflow: hidden; background: var(--bg); position: relative; z-index: 1; }
+  .shot.back { position: absolute; top: 0; right: 0; width: 78%; z-index: 0; transform: rotate(4deg); }
   .shot img { display: block; width: 100%; }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
   .card { border: 2.5px solid var(--ink); border-radius: 12px; padding: 20px; }
@@ -56,7 +58,10 @@
       <a class="btn" href="https://github.com/TouristeAG/GlobeRater/releases/latest">Download for Android</a>
       <p class="meta">Android 8.0 or newer · 15 languages · Free and open source (MIT)</p>
     </div>
-    <div class="shot"><img src="screenshots/today.png" alt="GlobeRater Today screen"></div>
+    <div class="shots">
+      <div class="shot"><img src="screenshots/today.png" alt="Today screen, light mode"></div>
+      <div class="shot back"><img src="screenshots/today-dark.png" alt="Today screen, dark mode"></div>
+    </div>
   </section>
 
   <section class="grid">
