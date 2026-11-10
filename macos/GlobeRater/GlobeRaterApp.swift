@@ -14,5 +14,12 @@ struct GlobeRaterApp: App {
         Settings {
             SettingsView().environment(model)
         }
+
+        MenuBarExtra(isInserted: model.binding(\.showInMenuBar)) {
+            MenuBarPanel().environment(model)
+        } label: {
+            Image(systemName: "globe")
+        }
+        .menuBarExtraStyle(.window)
     }
 }

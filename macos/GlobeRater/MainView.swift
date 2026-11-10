@@ -20,6 +20,7 @@ struct MainView: View {
                     case "rates": RatesSettings()
                     case "budget": BudgetSettingsView()
                     case "travel": TravelSettings()
+                    case "menubar": MenuBarPanel()
                     default: GeneralSettings()
                     }
                 }.frame(width: 520)
