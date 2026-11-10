@@ -11,6 +11,13 @@ struct MainView: View {
             List(selection: $section) {
                 Label(L("tab_today"), systemImage: "sun.max").tag(MainSection.today)
                 Label(L("tab_widgets"), systemImage: "square.grid.2x2").tag(MainSection.widgets)
+                // Opens the Settings window (not a page of this window), like ⌘, does.
+                SettingsLink {
+                    Label(L("tab_settings"), systemImage: "gearshape")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
             }
             .navigationSplitViewColumnWidth(min: 160, ideal: 180)
         } detail: {
