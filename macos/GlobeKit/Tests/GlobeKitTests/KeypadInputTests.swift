@@ -34,11 +34,26 @@ private func type(_ tokens: String...) -> String { tokens.reduce("") { KeypadInp
 }
 
 @Test func keyboardTypingAcceptsBothDecimalMarks() {
-    #expect(KeypadInput.sanitize("12.5") == "12,5")
-    #expect(KeypadInput.sanitize("12,5") == "12,5")
-    #expect(KeypadInput.sanitize("1 234,50") == "1234,50")
-    #expect(KeypadInput.sanitize("1,234.50") == "1,23")   // the first mark is the decimal one
-    #expect(KeypadInput.sanitize("abc") == "")
+    #expect(KeypadInput.sanitize("12.5", locale: fr) == "12,5")
+    #expect(KeypadInput.sanitize("12,5", locale: fr) == "12,5")
+    #expect(KeypadInput.sanitize("1 234,50", locale: fr) == "1234,50")
+    #expect(KeypadInput.sanitize("12.5", locale: us) == "12,5")
+    #expect(KeypadInput.sanitize("abc", locale: us) == "")
+}
+
+@Test func keyboardTypingUnderstandsGroupingSeparators() {
+    let de = Locale(identifier: "de_DE")
+    #expect(KeypadInput.sanitize("1,000", locale: us) == "1000")
+    #expect(KeypadInput.sanitize("1,234.50", locale: us) == "1234,50")
+    #expect(KeypadInput.sanitize("1.000", locale: de) == "1000")
+    #expect(KeypadInput.sanitize("1.000,5", locale: de) == "1000,5")
+    #expect(KeypadInput.sanitize("1,234.50", locale: fr) == "1234,50")   // both marks: the last one is decimal
+}
+
+@Test func ungroupedDisplayForTextFields() {
+    #expect(KeypadInput.display("1234,5", grouped: false, locale: us) == "1234.5")
+    #expect(KeypadInput.display("1234,5", grouped: false, locale: fr) == "1234,5")
+    #expect(KeypadInput.display("", grouped: false, locale: us) == "")
 }
 
 private func groupingSeparator(for locale: Locale) -> String {

@@ -49,7 +49,7 @@ struct WidgetGalleryView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
-                ForEach(groups.enumerated().filter { UserDefaults.standard.object(forKey: "GRGalleryOnly") == nil || $0.offset == UserDefaults.standard.integer(forKey: "GRGalleryOnly") }.map(\.element), id: \.0) { title, items in
+                ForEach(groups, id: \.0) { title, items in
                     VStack(alignment: .leading, spacing: 12) {
                         Text(verbatim: title).font(.title2.weight(.semibold))
                         FlowLayout(spacing: 20) {

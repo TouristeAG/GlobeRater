@@ -2,9 +2,13 @@ import SwiftUI
 
 @main
 struct GlobeRaterApp: App {
+    @State private var model = AppModel()
+
     var body: some Scene {
         WindowGroup(id: "main") {
-            WidgetGalleryView().frame(minWidth: 820, minHeight: 600)
+            MainView().environment(model)
         }
+        .defaultSize(width: 860, height: 760)
+        .handlesExternalEvents(matching: ["*"])
     }
 }

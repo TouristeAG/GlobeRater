@@ -29,12 +29,14 @@ public enum KeypadInput {
         Double(text.replacingOccurrences(of: ",", with: ".")) ?? 0
     }
 
-    /// Text shown to the user, with the locale's grouping and decimal separators.
-    public static func display(_ text: String, locale: Locale = .current) -> String {
-        if text.isEmpty { return "0" }
+    /// Text shown to the user, with the locale's separators. `grouped: false` is for editable
+    /// text fields (no thousands separators, empty stays empty).
+    public static func display(_ text: String, grouped: Bool = true, locale: Locale = .current) -> String {
         let f = NumberFormatter()
         f.locale = locale
         f.numberStyle = .decimal
+        if !grouped { return text.replacingOccurrences(of: ",", with: f.decimalSeparator) }
+        if text.isEmpty { return "0" }
         let parts = text.split(separator: ",", maxSplits: 1, omittingEmptySubsequences: false)
         let intPart = parts[0].isEmpty ? "0" : String(parts[0])
         var groups: [String] = []
@@ -48,11 +50,26 @@ public enum KeypadInput {
         return parts.count == 2 ? grouped + f.decimalSeparator + parts[1] : grouped
     }
 
-    /// Turns free keyboard typing ("12.5", "1 234,50") into stored keypad text by replaying
-    /// every digit or decimal mark through `append`.
-    public static func sanitize(_ typed: String) -> String {
-        typed.reduce("") { text, ch in
-            if ch.isASCIIDigit || ch == "," || ch == "." { return append(text, String(ch)) }
+    /// Turns free keyboard typing into stored keypad text. When both "," and "." appear, the last
+    /// one is the decimal mark. A lone mark that is the locale's thousands separator ("1,000" in
+    /// English, "1.000" in German) is ignored; any other mark is the decimal one.
+    public static func sanitize(_ typed: String, locale: Locale = .current) -> String {
+        let marks = typed.filter { $0 == "," || $0 == "." }
+        let decimalMark: Character?
+        if Set(marks).count == 2 {
+            decimalMark = marks.last
+        } else if let mark = marks.first {
+            let f = NumberFormatter()
+            f.locale = locale
+            f.numberStyle = .decimal
+            let isGrouping = f.groupingSeparator == String(mark) && f.decimalSeparator != String(mark)
+            decimalMark = isGrouping ? nil : mark
+        } else {
+            decimalMark = nil
+        }
+        return typed.reduce("") { text, ch in
+            if ch.isASCIIDigit { return append(text, String(ch)) }
+            if ch == decimalMark { return append(text, ",") }
             return text
         }
     }
