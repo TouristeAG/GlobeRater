@@ -54,6 +54,19 @@ public final class SharedStore: @unchecked Sendable {
         set { save(newValue, "pad"); changed() }
     }
 
+    public func weather(_ slot: WeatherSlot) -> PlaceWeather? { load("weather.\(slot.rawValue)") }
+
+    public func setWeather(_ weather: PlaceWeather?, for slot: WeatherSlot) {
+        save(weather, "weather.\(slot.rawValue)")
+        changed()
+    }
+
+    /// Last known position of the Mac, written by the app and read by the widget extension.
+    public var lastDevicePlace: Place? {
+        get { load("lastDevicePlace") }
+        set { save(newValue, "lastDevicePlace") }
+    }
+
     /// Tells the other process (and the widgets) that something changed.
     public func changed() {
         guard notify else { return }

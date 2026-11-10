@@ -8,6 +8,6 @@ let package = Package(
     products: [.library(name: "GlobeKit", targets: ["GlobeKit"])],
     targets: [
         .target(name: "GlobeKit"),
-        .testTarget(name: "GlobeKitTests", dependencies: ["GlobeKit"]),
+        .testTarget(name: "GlobeKitTests", dependencies: ["GlobeKit"], resources: [.copy("Fixtures")]),
     ]
 )
