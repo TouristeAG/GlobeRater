@@ -10,5 +10,9 @@ struct GlobeRaterApp: App {
         }
         .defaultSize(width: 860, height: 760)
         .handlesExternalEvents(matching: ["*"])
+
+        Settings {
+            SettingsView().environment(model)
+        }
     }
 }

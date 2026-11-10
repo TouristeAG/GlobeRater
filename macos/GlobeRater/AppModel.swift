@@ -12,8 +12,8 @@ final class AppModel {
     private(set) var lastRatesError: RatesError?
     private(set) var isRefreshing = false
     private var scheduler: NSBackgroundActivityScheduler?
-    /// Gives the Mac's position (set by the location provider in the Travel settings).
-    var devicePlace: @Sendable () async -> Place? = { SharedStore.shared.lastDevicePlace }
+    private let location = LocationProvider()
+    private(set) var locationDenied = false
 
     var settings: AppSettings { snapshot.settings }
     var budget: BudgetSummary { snapshot.budget }
@@ -24,7 +24,20 @@ final class AppModel {
         self.snapshot = WidgetSnapshot.load(store, now: .now)
         observeChanges()
         scheduleRefresh()
-        Task { await refresh(force: false) }
+        Task {
+            await updateLocation()
+            await refresh(force: false)
+        }
+    }
+
+    /// Reads the Mac's position (only when "here" follows the Mac), at launch and when the menu bar panel opens.
+    func updateLocation() async {
+        guard settings.here == .device else { return }
+        let place = await location.currentPlace()
+        locationDenied = location.isDenied
+        guard let place, place != store.lastDevicePlace else { return }
+        store.lastDevicePlace = place
+        await refresh(force: false)
     }
 
     func reload() { snapshot = WidgetSnapshot.load(store, now: .now) }
@@ -64,7 +77,11 @@ final class AppModel {
 
     // MARK: Refresh
 
-    var refresher: Refresher { Refresher(store: store, devicePlace: devicePlace) }
+    /// The widgets and the app read the same last known position.
+    var refresher: Refresher {
+        let store = self.store
+        return Refresher(store: store, devicePlace: { store.lastDevicePlace })
+    }
 
     func refresh(force: Bool) async {
         guard !isRefreshing else { return }
