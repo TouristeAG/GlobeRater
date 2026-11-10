@@ -1,0 +1,6 @@
+// Shared build settings. Signing.xcconfig (git-ignored) sets DEVELOPMENT_TEAM.
+#include? "Signing.xcconfig"
+
+// One App Group for the app and the widget extension, written the same way in the
+// entitlements and in Info.plist (GRAppGroup) so the code reads the exact entitled ID.
+APP_GROUP = $(DEVELOPMENT_TEAM).ch.tageoa.globerater
