@@ -4,7 +4,7 @@ import SwiftUI
 struct GlobeRaterApp: App {
     var body: some Scene {
         WindowGroup(id: "main") {
-            Text(verbatim: "GlobeRater").frame(minWidth: 400, minHeight: 300)
+            WidgetGalleryView().frame(minWidth: 820, minHeight: 600)
         }
     }
 }
