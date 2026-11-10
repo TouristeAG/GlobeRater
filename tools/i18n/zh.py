@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': '无网络连接。保留最近的汇率。',
  'mac_key': '按键',
  'mac_key_ok': '密钥有效',
+ 'mac_remove': '移除',
  'mac_location_denied': 'GlobeRater 的定位权限已关闭',
  'mac_mac_position': '我的 Mac 所在位置',
  'mac_open_app': '打开 GlobeRater',

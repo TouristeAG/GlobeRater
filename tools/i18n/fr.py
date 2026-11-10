@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'Pas de connexion. Les derniers taux sont conservés.',
  'mac_key': 'Touche',
  'mac_key_ok': 'La clé fonctionne',
+ 'mac_remove': 'Retirer',
  'mac_location_denied': "L'accès à la position est désactivé pour GlobeRater",
  'mac_mac_position': 'Là où est mon Mac',
  'mac_open_app': 'Ouvrir GlobeRater',

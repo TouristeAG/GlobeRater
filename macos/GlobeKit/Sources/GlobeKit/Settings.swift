@@ -33,6 +33,34 @@ public struct AppSettings: Codable, Equatable, Sendable {
     public var units: TemperatureUnit
     public var showInMenuBar: Bool
 
+    /// The user picks 1 to 3 keypad currencies and 1 to 5 currencies to convert to.
+    public static let maxInputCurrencies = 3
+    public static let maxOutputCurrencies = 5
+
+    public mutating func addInputCurrency(from all: [String]) {
+        Self.add(to: &inputCurrencies, max: Self.maxInputCurrencies, from: all)
+    }
+
+    public mutating func removeInputCurrency(at index: Int) { Self.remove(from: &inputCurrencies, at: index) }
+
+    public mutating func addOutputCurrency(from all: [String]) {
+        Self.add(to: &outputCurrencies, max: Self.maxOutputCurrencies, from: all)
+    }
+
+    public mutating func removeOutputCurrency(at index: Int) { Self.remove(from: &outputCurrencies, at: index) }
+
+    /// Appends the first currency of `all` not already listed, unless the list is full.
+    private static func add(to list: inout [String], max: Int, from all: [String]) {
+        guard list.count < max, let next = all.first(where: { !list.contains($0) }) else { return }
+        list.append(next)
+    }
+
+    /// Removes one currency, always keeping at least one.
+    private static func remove(from list: inout [String], at index: Int) {
+        guard list.count > 1, list.indices.contains(index) else { return }
+        list.remove(at: index)
+    }
+
     /// Same defaults as the Android app (AppSettings.kt).
     public static func defaults(now: Date) -> AppSettings {
         AppSettings(

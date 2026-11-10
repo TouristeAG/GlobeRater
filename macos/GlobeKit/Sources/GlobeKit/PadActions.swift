@@ -28,6 +28,21 @@ public enum PadActions {
         store.pad = pad
     }
 
+    /// Removes a keypad currency; if the keypad was on it, moves to the first one left (amount kept).
+    public static func removeInputCurrency(at index: Int, store: SharedStore) {
+        store.updateSettings { $0.removeInputCurrency(at: index) }
+        keepCurrencyInList(store: store)
+    }
+
+    /// After the keypad currencies changed: if the keypad's currency is no longer one of them,
+    /// moves it to the first one (the amount is kept).
+    public static func keepCurrencyInList(store: SharedStore) {
+        let inputs = store.settings.inputCurrencies
+        if !inputs.contains(store.pad.currency), let first = inputs.first {
+            selectCurrency(first, store: store)
+        }
+    }
+
     /// Converter "+": adds the typed amount to the budget and clears the keypad.
     @discardableResult
     public static func addPadToBudget(store: SharedStore, now: Date) -> Bool {

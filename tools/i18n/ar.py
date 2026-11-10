@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'لا يوجد اتصال. يتم الاحتفاظ بآخر الأسعار.',
  'mac_key': 'مفتاح',
  'mac_key_ok': 'المفتاح يعمل',
+ 'mac_remove': 'إزالة',
  'mac_location_denied': 'الوصول إلى الموقع متوقف لـ GlobeRater',
  'mac_mac_position': 'حيث يوجد جهاز Mac',
  'mac_open_app': 'فتح GlobeRater',

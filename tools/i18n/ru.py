@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'Нет соединения. Последние курсы сохранены.',
  'mac_key': 'Клавиша',
  'mac_key_ok': 'Ключ работает',
+ 'mac_remove': 'Удалить',
  'mac_location_denied': 'Доступ к геопозиции для GlobeRater отключён',
  'mac_mac_position': 'Где находится мой Mac',
  'mac_open_app': 'Открыть GlobeRater',

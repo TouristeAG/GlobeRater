@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'Tidak ada koneksi. Kurs terakhir tetap disimpan.',
  'mac_key': 'Tombol',
  'mac_key_ok': 'Kunci berfungsi',
+ 'mac_remove': 'Hapus',
  'mac_location_denied': 'Akses lokasi untuk GlobeRater nonaktif',
  'mac_mac_position': 'Lokasi Mac saya',
  'mac_open_app': 'Buka GlobeRater',

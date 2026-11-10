@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'कनेक्शन नहीं है। पिछली दरें रखी गई हैं।',
  'mac_key': 'कुंजी',
  'mac_key_ok': 'कुंजी काम कर रही है',
+ 'mac_remove': 'हटाएँ',
  'mac_location_denied': 'GlobeRater के लिए लोकेशन एक्सेस बंद है',
  'mac_mac_position': 'जहाँ मेरा Mac है',
  'mac_open_app': 'GlobeRater खोलें',

@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'Bağlantı yok. Son kurlar korunuyor.',
  'mac_key': 'Tuş',
  'mac_key_ok': 'Anahtar çalışıyor',
+ 'mac_remove': 'Kaldır',
  'mac_location_denied': 'GlobeRater için konum erişimi kapalı',
  'mac_mac_position': "Mac'imin bulunduğu yer",
  'mac_open_app': "GlobeRater'ı aç",

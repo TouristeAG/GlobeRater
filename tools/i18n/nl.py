@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'Geen verbinding. De laatste koersen blijven bewaard.',
  'mac_key': 'Toets',
  'mac_key_ok': 'De sleutel werkt',
+ 'mac_remove': 'Verwijderen',
  'mac_location_denied': 'Locatietoegang staat uit voor GlobeRater',
  'mac_mac_position': 'Waar mijn Mac is',
  'mac_open_app': 'Open GlobeRater',

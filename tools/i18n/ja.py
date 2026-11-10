@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': '接続がありません。最後のレートを保持しています。',
  'mac_key': 'キー',
  'mac_key_ok': 'キーは有効です',
+ 'mac_remove': '削除',
  'mac_location_denied': 'GlobeRater の位置情報へのアクセスがオフです',
  'mac_mac_position': 'Mac がある場所',
  'mac_open_app': 'GlobeRater を開く',

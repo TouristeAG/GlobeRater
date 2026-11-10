@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': 'Keine Verbindung. Die letzten Kurse bleiben erhalten.',
  'mac_key': 'Taste',
  'mac_key_ok': 'Der Schlüssel funktioniert',
+ 'mac_remove': 'Entfernen',
  'mac_location_denied': 'Der Standortzugriff ist für GlobeRater deaktiviert',
  'mac_mac_position': 'Wo mein Mac ist',
  'mac_open_app': 'GlobeRater öffnen',

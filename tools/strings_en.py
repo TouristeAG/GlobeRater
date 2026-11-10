@@ -116,6 +116,7 @@ EN_MAC = {
  'mac_err_network': 'No connection. The last rates are kept.',
  'mac_key': 'Key',
  'mac_key_ok': 'The key works',
+ 'mac_remove': 'Remove',
  'mac_location_denied': 'Location access is off for GlobeRater',
  'mac_mac_position': 'Where my Mac is',
  'mac_open_app': 'Open GlobeRater',

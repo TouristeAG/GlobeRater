@@ -73,6 +73,33 @@ final class AppModel {
         reload()
     }
 
+    // MARK: Currency lists
+
+    func addCurrency(_ path: WritableKeyPath<AppSettings, [String]>) {
+        let all = allCurrencies
+        update { path == \.inputCurrencies ? $0.addInputCurrency(from: all) : $0.addOutputCurrency(from: all) }
+    }
+
+    func removeCurrency(_ path: WritableKeyPath<AppSettings, [String]>, at index: Int) {
+        if path == \.inputCurrencies {
+            PadActions.removeInputCurrency(at: index, store: store)
+            reload()
+        } else {
+            update { $0.removeOutputCurrency(at: index) }
+        }
+    }
+
+    func setCurrency(_ path: WritableKeyPath<AppSettings, [String]>, at index: Int, to code: String) {
+        update { s in
+            guard s[keyPath: path].indices.contains(index) else { return }
+            s[keyPath: path][index] = code
+        }
+        if path == \.inputCurrencies {
+            PadActions.keepCurrencyInList(store: store)
+            reload()
+        }
+    }
+
     // MARK: Refresh
 
     /// The widgets and the app read the same last known position.

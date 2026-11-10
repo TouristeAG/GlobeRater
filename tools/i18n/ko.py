@@ -59,6 +59,7 @@ T_MAC = {
  'mac_err_network': '연결 없음. 마지막 환율을 유지합니다.',
  'mac_key': '키',
  'mac_key_ok': '키가 작동합니다',
+ 'mac_remove': '삭제',
  'mac_location_denied': 'GlobeRater의 위치 접근이 꺼져 있습니다',
  'mac_mac_position': '내 Mac이 있는 곳',
  'mac_open_app': 'GlobeRater 열기',
