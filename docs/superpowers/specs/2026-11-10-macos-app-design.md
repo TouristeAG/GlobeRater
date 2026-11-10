@@ -46,7 +46,8 @@ macos/
     Sources/GlobeKit/
     Tests/GlobeKitTests/
   GlobeRater/                  cible app : fenêtre, Réglages, barre de menus
-  GlobeRaterWidgets/           cible extension WidgetKit : 5 widgets + AppIntents
+  WidgetUI/                    vues des widgets + AppIntents, compilés dans l'app (galerie) et l'extension
+  GlobeRaterWidgets/           cible extension WidgetKit : déclarations des 5 widgets, timelines
   Shared/Localizable.xcstrings 15 langues, généré
   scripts/build-dmg.sh
 ```
