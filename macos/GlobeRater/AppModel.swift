@@ -69,9 +69,7 @@ final class AppModel {
     // MARK: Settings
 
     func update(_ change: (inout AppSettings) -> Void) {
-        var s = store.settings
-        change(&s)
-        store.settings = s
+        guard store.updateSettings(change) else { return }
         reload()
     }
 

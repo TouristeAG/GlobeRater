@@ -60,6 +60,19 @@ public final class SharedStore: @unchecked Sendable {
         set { save(newValue, "settings"); changed() }
     }
 
+    /// Applies `change` and saves only if it really changed something; returns whether it did.
+    /// SwiftUI writes bindings back with unchanged values (e.g. `MenuBarExtra(isInserted:)` on every
+    /// scene update): saving those would notify, reload the views and loop forever.
+    @discardableResult
+    public func updateSettings(_ change: (inout AppSettings) -> Void) -> Bool {
+        let old = settings
+        var new = old
+        change(&new)
+        guard new != old else { return false }
+        settings = new
+        return true
+    }
+
     public var rates: Rates {
         get { load("rates") ?? .sample }
         set { save(newValue, "rates"); changed() }

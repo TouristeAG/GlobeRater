@@ -31,3 +31,16 @@ import Testing
 @Test func missingRatesFallBackToSample() {
     #expect(makeStore().rates.isSample)
 }
+
+@Test func settingsUpdateThatChangesNothingIsSkipped() {
+    let store = makeStore()
+    let before = store.settings
+    #expect(store.updateSettings { $0.showInMenuBar = before.showInMenuBar } == false)
+    #expect(store.settings == before)
+}
+
+@Test func settingsUpdateThatChangesSomethingIsSaved() {
+    let store = makeStore()
+    #expect(store.updateSettings { $0.units = .fahrenheit } == true)
+    #expect(store.settings.units == .fahrenheit)
+}
