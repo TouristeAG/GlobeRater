@@ -1,26 +1,13 @@
 import SwiftUI
 import WidgetKit
 
-struct PlaceholderEntry: TimelineEntry { let date: Date }
-
-struct PlaceholderProvider: TimelineProvider {
-    func placeholder(in context: Context) -> PlaceholderEntry { PlaceholderEntry(date: .now) }
-    func getSnapshot(in context: Context, completion: @escaping (PlaceholderEntry) -> Void) { completion(PlaceholderEntry(date: .now)) }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<PlaceholderEntry>) -> Void) {
-        completion(Timeline(entries: [PlaceholderEntry(date: .now)], policy: .never))
-    }
-}
-
-struct PlaceholderWidget: Widget {
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "placeholder", provider: PlaceholderProvider()) { _ in
-            Text(verbatim: "GlobeRater").containerBackground(.fill.tertiary, for: .widget)
-        }
-        .configurationDisplayName(Text(verbatim: "GlobeRater"))
-    }
-}
-
 @main
 struct GlobeRaterWidgetsBundle: WidgetBundle {
-    var body: some Widget { PlaceholderWidget() }
+    var body: some Widget {
+        ConverterWidget()
+        ConverterBudgetWidget()
+        BudgetWidget()
+        TravelClockWidget()
+        WeatherWidget()
+    }
 }
