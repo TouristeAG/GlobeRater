@@ -98,9 +98,18 @@ final class AppModel {
         await refresher.refreshWeather(force: force, now: .now)
     }
 
-    /// Checks a key typed in the settings by downloading rates with it.
+    /// Checks a key typed in the settings by downloading rates with it. Always asks the server,
+    /// even while another refresh is running, so a bad key is never reported as valid.
     func verifyKey() async -> RatesError? {
-        await refresh(force: true)
+        do {
+            try await refresher.refreshRates(force: true, now: .now)
+            lastRatesError = nil
+        } catch let error as RatesError {
+            lastRatesError = error
+        } catch {
+            lastRatesError = .network
+        }
+        reload()
         return lastRatesError
     }
 

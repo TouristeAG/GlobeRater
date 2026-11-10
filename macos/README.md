@@ -22,6 +22,8 @@ xcodebuild -scheme GlobeRater -configuration Debug -derivedDataPath build build
 ADHOC=1 ./scripts/build-dmg.sh    # ad-hoc signed, for this Mac only
 ```
 
+An ad-hoc build has no App Group, so the app and the widgets keep separate data (the widgets show their own keypad and budget). Use it to try the UI; use the signed build for real use.
+
 The DMG lands in `build/`. It is not notarized (a free Apple ID can't notarize): on first launch, open *System Settings → Privacy & Security → Open Anyway*.
 
 ## Layout

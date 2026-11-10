@@ -51,10 +51,12 @@ public enum KeypadInput {
     }
 
     /// Turns free keyboard typing into stored keypad text. When both "," and "." appear, the last
-    /// one is the decimal mark. A lone mark that is the locale's thousands separator ("1,000" in
-    /// English, "1.000" in German) is ignored; any other mark is the decimal one.
+    /// one is the decimal mark. A lone mark is read as the locale's thousands separator only when
+    /// it splits the number into groups of exactly three digits ("1,000" in English, "1.000" in
+    /// German); otherwise it is the decimal mark ("12.50" is 12.5 everywhere).
     public static func sanitize(_ typed: String, locale: Locale = .current) -> String {
-        let marks = typed.filter { $0 == "," || $0 == "." }
+        let core = typed.filter { $0.isASCIIDigit || $0 == "," || $0 == "." }
+        let marks = core.filter { $0 == "," || $0 == "." }
         let decimalMark: Character?
         if Set(marks).count == 2 {
             decimalMark = marks.last
@@ -62,7 +64,9 @@ public enum KeypadInput {
             let f = NumberFormatter()
             f.locale = locale
             f.numberStyle = .decimal
-            let isGrouping = f.groupingSeparator == String(mark) && f.decimalSeparator != String(mark)
+            let groups = core.split(separator: mark, omittingEmptySubsequences: false)
+            let looksGrouped = groups.count > 1 && (1...3).contains(groups[0].count) && groups.dropFirst().allSatisfy { $0.count == 3 }
+            let isGrouping = looksGrouped && f.groupingSeparator == String(mark) && f.decimalSeparator != String(mark)
             decimalMark = isGrouping ? nil : mark
         } else {
             decimalMark = nil

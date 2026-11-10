@@ -14,12 +14,11 @@ private func ledger(_ dir: URL = temporaryDirectory()) -> BudgetLedger { BudgetL
     #expect(l.spent(budget: budget, rates: rates, now: now) == 15)
 }
 
-@Test func addPurgesPreviousPeriods() throws {
+@Test func addPurgesExpensesOlderThanAYear() throws {
     let l = ledger(), budget = monthlyBudget(), now = Date()
-    let start = BudgetPeriod.currentStart(anchor: budget.anchor, refreshHour: 0, span: .monthly, now: now)
-    try l.add(40, currency: "USD", at: start.addingTimeInterval(-3600), budget: budget)
+    try l.add(40, currency: "USD", at: now.addingTimeInterval(-400 * 86_400), budget: budget)
     try l.add(10, currency: "USD", at: now, budget: budget)
-    #expect(l.expenses().count == 1)
+    #expect(l.expenses().map(\.amount) == [10])
 }
 
 @Test func unknownRateKeepsAmountAsTyped() throws {
@@ -77,4 +76,17 @@ private func ledger(_ dir: URL = temporaryDirectory()) -> BudgetLedger { BudgetL
 @Test func summaryOfEmptyLedger() {
     let s = BudgetSummary.make(ledger: ledger(), budget: monthlyBudget(amount: 100), rates: rates, now: .now)
     #expect(s.spent == 0 && s.fraction == 0 && !s.isOver && s.remaining == 100)
+}
+
+@Test func switchingTheDisplayPeriodKeepsOlderExpenses() throws {
+    let l = ledger(), now = Date()
+    var monthly = monthlyBudget()
+    let earlier = now.addingTimeInterval(-3 * 86_400)
+    let monthStart = BudgetPeriod.currentStart(anchor: monthly.anchor, refreshHour: 0, span: .monthly, now: now)
+    try l.add(30, currency: "USD", at: max(earlier, monthStart), budget: monthly)
+    var daily = monthly
+    daily.displaySpan = .daily
+    try l.add(5, currency: "USD", at: now, budget: daily)
+    monthly.displaySpan = .monthly
+    #expect(l.spent(budget: monthly, rates: rates, now: now) == 35)
 }

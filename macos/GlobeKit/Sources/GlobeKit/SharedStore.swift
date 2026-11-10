@@ -1,4 +1,5 @@
 import Foundation
+import Security
 #if canImport(WidgetKit)
 import WidgetKit
 #endif
@@ -7,10 +8,12 @@ import WidgetKit
 public final class SharedStore: @unchecked Sendable {
     public static let changedNotification = "ch.tageoa.globerater.changed"
 
-    /// Store of the App Group named by the `GRAppGroup` Info.plist key. Without a usable group
-    /// (unsigned development build) it falls back to the app's own defaults and Application Support.
+    /// Store of the App Group named by the `GRAppGroup` Info.plist key. Without that entitlement
+    /// (unsigned or ad-hoc build) it falls back to the process's own defaults and Application Support,
+    /// so the app runs but does not share data with the widgets.
     public static let shared: SharedStore = {
-        let group = Bundle.main.object(forInfoDictionaryKey: "GRAppGroup") as? String
+        let group = appGroup(declared: Bundle.main.object(forInfoDictionaryKey: "GRAppGroup") as? String,
+                             entitled: entitledGroups())
         if let group,
            let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: group),
            let defaults = UserDefaults(suiteName: group) {
@@ -21,6 +24,19 @@ public final class SharedStore: @unchecked Sendable {
         try? FileManager.default.createDirectory(at: support, withIntermediateDirectories: true)
         return SharedStore(defaults: .standard, directory: support)
     }()
+
+    /// The App Group declared in Info.plist, only if the running binary is really entitled to it
+    /// (on macOS `containerURL` answers even for groups the app may not use).
+    static func appGroup(declared: String?, entitled: [String]?) -> String? {
+        guard let declared, !declared.isEmpty, !declared.hasPrefix("."), !declared.contains("$("),
+              entitled?.contains(declared) == true else { return nil }
+        return declared
+    }
+
+    private static func entitledGroups() -> [String]? {
+        guard let task = SecTaskCreateFromSelf(nil) else { return nil }
+        return SecTaskCopyValueForEntitlement(task, "com.apple.security.application-groups" as CFString, nil) as? [String]
+    }
 
     private let defaults: UserDefaults
     private let directory: URL

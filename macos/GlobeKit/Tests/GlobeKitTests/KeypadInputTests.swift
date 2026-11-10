@@ -60,3 +60,13 @@ private func groupingSeparator(for locale: Locale) -> String {
     let f = NumberFormatter(); f.locale = locale; f.numberStyle = .decimal
     return f.groupingSeparator
 }
+
+@Test func dotIsDecimalUnlessItGroupsThousands() {
+    let de = Locale(identifier: "de_DE"), es = Locale(identifier: "es_ES")
+    #expect(KeypadInput.sanitize("12.50", locale: de) == "12,50")
+    #expect(KeypadInput.sanitize("12.5", locale: es) == "12,5")
+    #expect(KeypadInput.sanitize("1.000", locale: de) == "1000")
+    #expect(KeypadInput.sanitize("1.234.567", locale: de) == "1234567")
+    #expect(KeypadInput.sanitize("1,5", locale: us) == "1,5")
+    #expect(KeypadInput.sanitize("1,000", locale: us) == "1000")
+}

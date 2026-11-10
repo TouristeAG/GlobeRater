@@ -26,10 +26,11 @@ public final class BudgetLedger: @unchecked Sendable {
     public init(fileURL: URL) { self.fileURL = fileURL }
 
     public func add(_ amount: Double, currency: String, at date: Date, budget: BudgetSettings) throws {
-        let periodStart = BudgetPeriod.currentStart(anchor: budget.anchor, refreshHour: budget.refreshHour,
-                                                    span: budget.displaySpan, now: date)
+        // Keep a whole year, so switching the display period (day ↔ month) never loses expenses.
+        let keepSince = BudgetPeriod.currentStart(anchor: budget.anchor, refreshHour: budget.refreshHour,
+                                                  span: .yearly, now: date)
         try update { file in
-            file.expenses.removeAll { $0.date < periodStart }
+            file.expenses.removeAll { $0.date < keepSince }
             file.expenses.append(Expense(amount: amount, currency: currency, date: date))
         }
     }

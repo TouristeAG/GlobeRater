@@ -47,7 +47,7 @@ targets:
         LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
         NSLocationUsageDescription: GlobeRater uses your approximate location to show the time and weather where you are.
         NSHumanReadableCopyright: © 2026 Tageoa
-        GRAppGroup: $(TeamIdentifierPrefix)ch.tageoa.globerater
+        GRAppGroup: $(APP_GROUP)
         CFBundleURLTypes:
           - CFBundleURLName: ch.tageoa.globerater
             CFBundleURLSchemes: [globerater]
@@ -58,7 +58,7 @@ targets:
         com.apple.security.network.client: true
         com.apple.security.personal-information.location: true
         com.apple.security.application-groups:
-          - $(TeamIdentifierPrefix)ch.tageoa.globerater
+          - $(APP_GROUP)
   GlobeRaterWidgets:
     type: app-extension
     platform: macOS
@@ -81,7 +81,7 @@ targets:
         CFBundleDisplayName: GlobeRater
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
-        GRAppGroup: $(TeamIdentifierPrefix)ch.tageoa.globerater
+        GRAppGroup: $(APP_GROUP)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     entitlements:
@@ -90,7 +90,7 @@ targets:
         com.apple.security.app-sandbox: true
         com.apple.security.network.client: true
         com.apple.security.application-groups:
-          - $(TeamIdentifierPrefix)ch.tageoa.globerater
+          - $(APP_GROUP)
 schemes:
   GlobeRater:
     build:

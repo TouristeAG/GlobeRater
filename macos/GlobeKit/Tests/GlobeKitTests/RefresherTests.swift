@@ -91,3 +91,11 @@ private func weather(fetchedAt: Date, unit: TemperatureUnit = .celsius) -> Place
     store.lastDevicePlace = geneva
     #expect(store.lastDevicePlace == geneva)
 }
+
+@Test func forcedRefreshAlwaysAsksTheServer() async throws {
+    let store = makeStore(), http = StubHTTP()
+    store.settings.apiKey = "bad"
+    store.rates = Rates(usd: ["EUR": 0.9], updatedAt: now)          // fresh, not stale
+    http.on("https://openexchangerates.org", .body("{}", 401))
+    await #expect(throws: RatesError.invalidKey) { try await refresher(store, http).refreshRates(force: true, now: now) }
+}

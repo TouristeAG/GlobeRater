@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Builds build/GlobeRater-<version>.dmg, signed with your Personal Team (Config/Signing.xcconfig).
-# ADHOC=1 builds an ad-hoc signed DMG instead, for testing on this Mac only.
+# ADHOC=1 builds an ad-hoc signed DMG instead, for testing on this Mac only
+# (no App Group: the app and the widgets do not share data).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
