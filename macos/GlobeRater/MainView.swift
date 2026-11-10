@@ -21,9 +21,10 @@ struct MainView: View {
                     case "budget": BudgetSettingsView()
                     case "travel": TravelSettings()
                     case "menubar": MenuBarPanel()
+                    case "gallery": WidgetGalleryView()
                     default: GeneralSettings()
                     }
-                }.frame(width: 520)
+                }.frame(minWidth: 520)
             } else {
             switch section {
             case .widgets: WidgetGalleryView().navigationTitle(L("tab_widgets"))

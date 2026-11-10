@@ -22,7 +22,7 @@ struct WidgetGalleryView: View {
                      view: AnyView(ConverterView(snapshot: s, family: .systemMedium, withBudget: false, accent: .system, interactive: false))),
                 Item(id: "c-l", title: L("group_converter"), description: L("w_tall_desc"), family: .systemLarge,
                      view: AnyView(ConverterView(snapshot: s, family: .systemLarge, withBudget: false, accent: .system, interactive: false))),
-                Item(id: "cb-m", title: L("mac_converter_budget"), description: L("w_compact_budget_desc"), family: .systemMedium,
+                Item(id: "cb-m", title: L("mac_converter_budget"), description: L("w_tall_budget_desc"), family: .systemMedium,
                      view: AnyView(ConverterView(snapshot: s, family: .systemMedium, withBudget: true, accent: .system, interactive: false))),
                 Item(id: "cb-l", title: L("mac_converter_budget"), description: L("w_tall_budget_desc"), family: .systemLarge,
                      view: AnyView(ConverterView(snapshot: s, family: .systemLarge, withBudget: true, accent: .system, interactive: false))),

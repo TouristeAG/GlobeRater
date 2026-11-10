@@ -1,0 +1,101 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "NSLocationUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يستخدم GlobeRater موقعك التقريبي لعرض الوقت والطقس حيث أنت."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater verwendet deinen ungefähren Standort, um Uhrzeit und Wetter dort anzuzeigen, wo du bist."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater uses your approximate location to show the time and weather where you are."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater usa tu ubicación aproximada para mostrar la hora y el tiempo donde estás."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater utilise votre position approximative pour afficher l'heure et la météo là où vous êtes."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater आपकी अनुमानित लोकेशन से वहाँ का समय और मौसम दिखाता है जहाँ आप हैं।"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater menggunakan perkiraan lokasi Anda untuk menampilkan waktu dan cuaca di tempat Anda berada."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater usa la tua posizione approssimativa per mostrare l'ora e il meteo dove ti trovi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater はおおよその位置情報を使って、現在地の時刻と天気を表示します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater는 대략적인 위치를 사용해 현재 위치의 시간과 날씨를 표시합니다."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater gebruikt je geschatte locatie om de tijd en het weer te tonen waar je bent."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O GlobeRater usa sua localização aproximada para mostrar a hora e o tempo onde você está."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater использует ваше примерное местоположение, чтобы показывать время и погоду там, где вы находитесь."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater, bulunduğunuz yerdeki saati ve hava durumunu göstermek için yaklaşık konumunuzu kullanır."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GlobeRater 使用你的大致位置来显示你所在地的时间和天气。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
