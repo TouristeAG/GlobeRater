@@ -14,22 +14,9 @@ struct MainView: View {
             }
             .navigationSplitViewColumnWidth(min: 160, ideal: 180)
         } detail: {
-            if let tab = UserDefaults.standard.string(forKey: "GRPreviewTab") {  // TEMP: screenshots
-                Group {
-                    switch tab {
-                    case "rates": RatesSettings()
-                    case "budget": BudgetSettingsView()
-                    case "travel": TravelSettings()
-                    case "menubar": MenuBarPanel()
-                    case "gallery": WidgetGalleryView()
-                    default: GeneralSettings()
-                    }
-                }.frame(minWidth: 520)
-            } else {
             switch section {
             case .widgets: WidgetGalleryView().navigationTitle(L("tab_widgets"))
             default: TodayView(scrollTarget: scrollTarget).navigationTitle(L("tab_today"))
-            }
             }
         }
         .frame(minWidth: 720, minHeight: 560)

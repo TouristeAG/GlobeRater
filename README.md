@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="../../releases/latest"><b>Download the APK</b></a> ·
-  Android 8.0+ · 15 languages · MIT
+  <a href="../../releases/latest"><b>Download the APK or the Mac app</b></a> ·
+  Android 8.0+ · macOS 14+ · 15 languages · MIT
 </p>
 
 <p align="center">
@@ -40,6 +40,22 @@
 |---|---|---|
 | Compact · Tall · Compact + budget · Tall + budget | Vertical · Horizontal · Mini | Clock · Weather |
 
+## macOS
+
+The Mac app has the same features with a native macOS look: a window with **Today** and a widget gallery, a **Settings** window (⌘,), a **menu bar** panel where you type an amount with the keyboard and add it to your budget, and five desktop widgets:
+
+| Widget | Sizes |
+|---|---|
+| Converter (with keypad) | Medium · Large |
+| Converter + budget | Medium · Large |
+| Budget (fill or ring) | Small · Medium |
+| Clock · home & here | Medium |
+| Weather · home & here | Medium · Large |
+
+Right-click a widget → *Edit* to pick its accent colour.
+
+**Install.** Open the DMG and drag GlobeRater to Applications. The app is not notarized, so the first time macOS blocks it: open *System Settings → Privacy & Security* and click *Open Anyway*. Then right-click the desktop → *Edit Widgets* → GlobeRater.
+
 ## Light on the battery
 
 - Widgets only read data saved on the phone; nothing runs while you don't use them.
@@ -66,11 +82,18 @@ Release builds are minified with R8. To sign them, copy `keystore.properties.exa
 ./gradlew assembleRelease bundleRelease
 ```
 
+The Mac app (macOS 14+, Xcode 16, [XcodeGen](https://github.com/yonaskolb/XcodeGen)) lives in `macos/`; see [macos/README.md](macos/README.md). To build the DMG:
+
+```bash
+cd macos && ./scripts/build-dmg.sh
+```
+
 The widget palettes and the translations are generated:
 
 ```bash
 python3 tools/gen_palettes.py
 python3 tools/gen_strings.py
+python3 tools/gen_xcstrings.py   # Mac app
 ```
 
 ## Privacy
@@ -80,7 +103,7 @@ GlobeRater has no account, no analytics and no ads. It only talks to:
 - **openexchangerates.org**, with your own API key, to download exchange rates;
 - **open-meteo.com**, with the coordinates of the places you chose, to get the weather.
 
-Everything else stays on your phone.
+Everything else stays on your phone (or your Mac).
 
 ## Credits
 
