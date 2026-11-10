@@ -1,0 +1,102 @@
+name: GlobeRater
+options:
+  bundleIdPrefix: ch.tageoa
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+configFiles:
+  Debug: Config/Base.xcconfig
+  Release: Config/Base.xcconfig
+settings:
+  base:
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    ENABLE_HARDENED_RUNTIME: YES
+    CODE_SIGN_STYLE: Automatic
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    SWIFT_EMIT_LOC_STRINGS: YES
+packages:
+  GlobeKit:
+    path: GlobeKit
+targets:
+  GlobeRater:
+    type: application
+    platform: macOS
+    sources:
+      - GlobeRater
+      - WidgetUI
+      - Shared
+    dependencies:
+      - package: GlobeKit
+      - target: GlobeRaterWidgets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ch.tageoa.globerater
+        PRODUCT_NAME: GlobeRater
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
+    info:
+      path: GlobeRater/Info.plist
+      properties:
+        CFBundleDisplayName: GlobeRater
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSApplicationCategoryType: public.app-category.travel
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        NSLocationUsageDescription: GlobeRater uses your approximate location to show the time and weather where you are.
+        NSHumanReadableCopyright: © 2026 Tageoa
+        GRAppGroup: $(TeamIdentifierPrefix)ch.tageoa.globerater
+        CFBundleURLTypes:
+          - CFBundleURLName: ch.tageoa.globerater
+            CFBundleURLSchemes: [globerater]
+    entitlements:
+      path: GlobeRater/GlobeRater.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.personal-information.location: true
+        com.apple.security.application-groups:
+          - $(TeamIdentifierPrefix)ch.tageoa.globerater
+  GlobeRaterWidgets:
+    type: app-extension
+    platform: macOS
+    sources:
+      - GlobeRaterWidgets
+      - WidgetUI
+      - Shared
+    dependencies:
+      - package: GlobeKit
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ch.tageoa.globerater.widgets
+        PRODUCT_NAME: GlobeRaterWidgets
+        SKIP_INSTALL: YES
+    info:
+      path: GlobeRaterWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: GlobeRater
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        GRAppGroup: $(TeamIdentifierPrefix)ch.tageoa.globerater
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: GlobeRaterWidgets/GlobeRaterWidgets.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.application-groups:
+          - $(TeamIdentifierPrefix)ch.tageoa.globerater
+schemes:
+  GlobeRater:
+    build:
+      targets:
+        GlobeRater: all
+    run:
+      config: Debug
+    archive:
+      config: Release

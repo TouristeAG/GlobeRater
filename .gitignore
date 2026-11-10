@@ -23,3 +23,14 @@ keystore.properties
 /*.zip
 /*.avif
 /GLOBE.svg
+
+# macOS app
+macos/GlobeRater.xcodeproj/
+macos/build/
+macos/Config/Signing.xcconfig
+macos/GlobeKit/.build/
+macos/GlobeKit/.swiftpm/
+macos/GlobeRater/Info.plist
+macos/GlobeRater/GlobeRater.entitlements
+macos/GlobeRaterWidgets/Info.plist
+macos/GlobeRaterWidgets/GlobeRaterWidgets.entitlements

@@ -1,0 +1,2 @@
+// Shared build settings. Signing.xcconfig (git-ignored) sets DEVELOPMENT_TEAM.
+#include? "Signing.xcconfig"
